@@ -72,7 +72,6 @@
       }
     },
     methods: {
-      // 增加单条电影
       addUser () {
         let user = this.formRegister
         let formData = {

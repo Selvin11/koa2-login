@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from '../views/Home'
 import Login from '../views/Login'
 import Register from '../views/Register'
+import Github from '../views/Github'
 
 Vue.use(Router)
 
@@ -24,6 +25,10 @@ const router = new Router({
     path: '/register',
     name: 'register',
     component: Register
+  }, {
+    path: '/github',
+    name: 'github',
+    component: Github
   }]
 })
 

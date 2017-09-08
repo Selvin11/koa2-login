@@ -18,6 +18,11 @@
             <el-button @click="resetForm">取消</el-button>
           </el-form-item>
           <el-form-item>
+            <span style="cursor:pointer;" @click="GoGithub">
+              <i class="el-icon-fa-github"></i>
+            </span>
+          </el-form-item>
+          <el-form-item>
             <router-link to="/register">
               <el-button type="">没有账号，立即注册<i class="el-icon-arrow-right el-icon--right"></i></el-button>
             </router-link>
@@ -113,6 +118,12 @@
             this.$message.error('表单验证失败!')
             return false
           }
+        })
+      },
+      GoGithub () {
+        this.$rest.auth.github(null).then(res => {
+          console.log(res)
+          window.location.href = res
         })
       },
       // 表单重置

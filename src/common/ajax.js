@@ -2,7 +2,7 @@
  * ajax request help
  */
 import axios from 'axios'
-import router from '@/router'
+// import router from '@/router'
 
 class Ajax {
 
@@ -34,26 +34,26 @@ class Ajax {
 
     // request 请求拦截器
     // 给POST请求头加上token
-    axios.interceptors.request.use(
-      config => {
-        // 判断localStorage是否存在token，如果存在的话，则每个http header都加上token
-        if (localStorage.getItem('token')) {
-          config.headers.Authorization = `token ${localStorage.getItem('token')}`
-              .replace(/(^")|("$)/g, '')
-        } else {
-          router.replace({
-            path: 'login',
-            query: {
-              redirect: router.currentRoute.fullPath
-            }
-          })
-        }
-        return config
-      },
-      err => {
-        return Promise.reject(err)
-      }
-    )
+    // axios.interceptors.request.use(
+    //   config => {
+    //     // 判断localStorage是否存在token，如果存在的话，则每个http header都加上token
+    //     if (localStorage.getItem('token')) {
+    //       config.headers.Authorization = `token ${localStorage.getItem('token')}`
+    //           .replace(/(^")|("$)/g, '')
+    //     } else {
+    //       router.replace({
+    //         path: 'login',
+    //         query: {
+    //           redirect: router.currentRoute.fullPath
+    //         }
+    //       })
+    //     }
+    //     return config
+    //   },
+    //   err => {
+    //     return Promise.reject(err)
+    //   }
+    // )
 
     // ajax 全局错误处理
     axios.interceptors.response.use(
